@@ -1,46 +1,57 @@
-# WinUniversalTriage DFIR Universal Triage Windows Tool
- 
- ==============================================================================
- Copyright (C) 2015 David Bernal
+# WinUniversalTriage
 
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- any later version.
+> **Universal Windows DFIR Triage & Live Response Tool**  
+> Native VBScript execution via `cscript.exe` with `RawCopy` & `WinPmem` integration.
 
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- GNU General Public License for more details.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20XP%20to%2011%20%2F%202003%20to%202022-brightgreen.svg)]()
 
- You should have received a copy of the GNU General Public License
- along with this program. If not, see <https://www.gnu.org/licenses/>.
+---
 
- ENHANCED DFIR TRIAGE COLLECTOR (Windows Server 2003 to WIN 11 Compatible)
- Native VBScript execution via cscript.exe with RawCopy & WinPmem integration
-AUTHOR: David Bernal
+## Overview
 
-WinUniversalTriage is a VBS script that allow to collect forensic relevant triage files in a diversity of Windows systems having minimal dependencies and providing a detailed audit log file of the actions performed.
+**WinUniversalTriage** is a lightweight, battle-tested forensic triage collector written in VBScript. It collects forensically relevant artifacts across a wide spectrum of Windows architectures with **minimal dependencies**, generating a comprehensive audit log of every action taken during the collection process.
 
-WinUniversalTriage project started in 2015, when I worked for a large global company and I needed a script that would support ancient systems,
-therefore I coded it in VBS script. At the time it used sleuthkit to copy locked files, but I replaced it with RawCopy to copy locked files, 
-as this tool supports event older systems. I have recently enhanced it during my weekends in my free time, it is in active development,
-albeit only in my time (outside of my regular job). 
+The project originated in 2015 to solve the challenge of collecting evidence from legacy Windows environments where modern collectors fail or cannot run. While originally relying on The Sleuth Kit, it now integrates `RawCopy` to extract locked forensic artifacts across both legacy and modern platforms.
 
-' Tested On
-' Windows Server 2003 x86 1 GB
-' Windows Server 2003 x64 1 GB
-' Windows XP 500MB
-' Windows Server 2008 x64 2 GB
-' Windows Server 2022 x64 8 GB
-' Windows 11 64 and 32 GB
+---
 
+## Key Features
 
+- **Order of Volatility Collection:** Designed to respect RFC 3227 standards, prioritizing ephemeral state and volatile memory capture before disk and persistent artifact acquisition.
+- **Comprehensive Audit Log:** Generates a detailed, timestamped log of all script executions, external tool invocations, and collected artifacts for forensic integrity and chain of custody.
+- **Wide OS Coverage:** Runs seamlessly from legacy (Windows XP / Server 2003) to modern systems (Windows 11 / Server 2022).
+- **Minimal Footprint:** Native VBScript execution minimizes changes to volatile memory and host state.
+- **Locked File Extraction:** Leverages raw disk parsing to retrieve locked files (`$MFT`, active Registry hives, event logs).
+- **Volatile Memory Capture:** Integrated support for physical memory acquisition via `WinPmem`.
 
+---
 
-DEPENDENCIES:
-[RawFileCopy](https://github.com/jschicht/RawCopy) To copy OS locked files, like $MFT and registry hives
-[Winpmem](https://github.com/Velocidex/WinPmem) to dump system memory, Windows OS 10 and above use the signed version of winpmem to avoid any BSOD
+## Tested Environments
 
-TODO:
-Collect Amcache hive and $MFT of all system drives.
+| Operating System | Architecture | RAM |
+| :--- | :--- | :--- |
+| **Windows XP** | x86 | 512 MB |
+| **Windows Server 2003** | x86 / x64 | 1 GB |
+| **Windows Server 2008** | x64 | 2 GB |
+| **Windows Server 2022** | x64 | 8 GB |
+| **Windows 11** | x64 | 32 GB / 64 GB |
+
+---
+
+## Dependencies
+
+Place the corresponding binaries alongside the script or within your execution path:
+
+- **[RawFileCopy](https://github.com/jschicht/RawCopy):** Used to bypass file system locks on critical forensic artifacts (e.g., active Registry hives, `$MFT`).
+- **[WinPmem](https://github.com/Velocidex/WinPmem):** Used for physical memory acquisition.  
+  > *Note: For Windows 10/11 and modern Server releases, always use the signed driver version to prevent BSOD or driver blocklist issues.*
+
+---
+
+## Usage
+
+Run the collector from an elevated command prompt (`Administrator`):
+
+```cmd
+cscript.exe //NoLogo WinUniversalTriage.vbs
