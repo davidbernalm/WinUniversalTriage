@@ -17,13 +17,12 @@ The project originated in 2015 to solve the challenge of collecting evidence fro
 ---
 
 ## Key Features
-
+- **Wide OS Coverage:** Runs seamlessly from legacy (Windows XP / Server 2003) to modern systems (Windows 11 / Server 2022).
 - **Order of Volatility Collection:** Designed to respect RFC 3227 standards, prioritizing ephemeral state and volatile memory capture before disk and persistent artifact acquisition.
 - **Comprehensive Audit Log:** Generates a detailed, timestamped log of all script executions, external tool invocations, and collected artifacts for forensic integrity and chain of custody.
-- **Wide OS Coverage:** Runs seamlessly from legacy (Windows XP / Server 2003) to modern systems (Windows 11 / Server 2022).
 - **Minimal Footprint:** Native VBScript execution minimizes changes to volatile memory and host state.
-- **Locked File Extraction:** Leverages raw disk parsing to retrieve locked files (`$MFT`, active Registry hives, event logs).
-- **Volatile Memory Capture:** Integrated support for physical memory acquisition via `WinPmem`.
+- **Locked File Extraction:** Leverages raw disk parsing to retrieve locked files (`$MFT`, active Registry hives).
+- **Volatile Memory Capture:** Integrated support for physical memory acquisition via `WinPmem` using the signed version for Win 10 and above
 
 ---
 
