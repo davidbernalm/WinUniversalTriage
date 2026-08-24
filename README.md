@@ -1,23 +1,24 @@
-# ==============================================================================
-# Copyright (C) 2015 David Bernal
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <https://www.gnu.org/licenses/>.
+# WinUniversalTriage DFIR Universal Triage Windows Tool
+ 
+ ==============================================================================
+ Copyright (C) 2015 David Bernal
 
-# ENHANCED DFIR TRIAGE COLLECTOR (Windows Server 2003 to WIN 11 Compatible)
-# Native VBScript execution via cscript.exe with RawCopy & WinPmem integration
-#
-# AUTHOR: David Bernal
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+ ENHANCED DFIR TRIAGE COLLECTOR (Windows Server 2003 to WIN 11 Compatible)
+ Native VBScript execution via cscript.exe with RawCopy & WinPmem integration
+AUTHOR: David Bernal
 
 WinUniversalTriage is a VBS script that allow to collect forensic relevant triage files in a diversity of Windows systems having minimal dependencies and providing a detailed audit log file of the actions performed.
 
