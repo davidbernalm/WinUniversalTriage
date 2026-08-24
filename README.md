@@ -52,9 +52,9 @@ Personal Development & Scope: All subsequent design, enhancements, bug fixes, an
 Employer Disclaimer: This project is entirely personal and is not affiliated with, endorsed by, sponsored by, or reflective of any past, current, or future employer.
 
 ## TODO
-Amcache.hve collection
-$MFT collection from all local drives (Only C is currently supported).
-Hashing and compression, if a modern OS is present
+- Amcache.hve collection
+- $MFT collection from all local drives (Only C is currently supported).
+- Hashing and compression, if a modern OS is present
 
 ## Output Structure
 
